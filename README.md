@@ -1,7 +1,7 @@
 # datacontainer-wp-db
 #### This repository contains the wordpress installation and a mapping of the /var/www/html i /var/lib/mysql directories
 ## Docker run example:
-docker create -v /var/lib/mysql -v /var/www/html --network exnet2 --name datacontainer jackyalt/data-wp-db
+docker create -v /var/lib/mysql -v /var/www/html --network exnet2 --name datacontainer jackyalt/datacontainer-wp-db
 
 ## Before installing WordPress, you must have a database installed
 #### Example:
@@ -12,7 +12,7 @@ docker run --name db -p 3306:3306 -d -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABA
 
 docker network create exnet2
 
-docker create -v /var/lib/mysql -v /var/www/html --network exnet2 --name datacontainer jackyalt/data-wp-db
+docker create -v /var/lib/mysql -v /var/www/html --network exnet2 --name datacontainer jackyalt/datacontainer-wp-db
 
 docker run -d -p 8080:80 --volumes-from datacontainer --network exnet2 --name apache jackyalt/httpd-php
 
